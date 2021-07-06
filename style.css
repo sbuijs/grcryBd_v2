@@ -1,0 +1,262 @@
+/* reset */
+* {
+  
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+:root {
+    --color-primary: #4D84F4;
+    --color-secondary: #f5414f;
+
+    --color-text: #2e2e31;
+    --color-border: #d1d0d2;
+
+    --color-success: #88c459;
+    --color-error: #f5414f;
+    --color-warning: #ffd137;
+
+    --blue: #4D84F4;
+    --red-brand: #f5414f;
+
+
+    --white: #fff;
+    --gray: #d1d0d2;
+    --gray-10: #2e2e31;
+    --gray-6: #7b7a7d;
+    --gray-4: #a5a5a6;
+    --gray-3: #bbbbbc;
+    --gray-2: #d1d0d2;
+    --gray-1: #e8e7e8;
+    --white: white;
+
+    --green: #88c459;
+    --red: #f94747;
+    --yellow: #ffd137;
+    --yellow-2: #e7bd31;
+}
+
+html, body {
+  height: 100%;
+}
+
+body{
+    background-color: var(--yellow);
+    color: var(--color-text);
+    font-family: 'Open Sans', sans-serif;
+      display: flex;
+  flex-direction: column;
+}
+
+h1, h2, h3, h4, h5{
+  font-family: 'Merriweather', serif;
+}
+
+h1{
+  margin-bottom: 1.2rem;
+  font-size: 4rem;
+}
+
+h2, h3, h4, h5, h6{
+  margin-bottom: 1rem;
+}
+
+p{
+  padding-bottom: 2rem;
+  line-height: 1.7rem;
+}
+
+.project-image{
+  width: 100%;
+  height: 200px;
+  background-image: url(/domenico-loia-hGV2TfOh0ns-unsplash.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.content {
+  flex: 1 0 auto;
+  /* padding: 6rem; */
+}
+
+.top{
+background-color: var(--yellow);
+border-bottom: 4px solid var(--yellow-2);
+padding: 6rem 6rem 6rem 6rem;
+}
+.bottom{
+  padding: 6rem 6rem 6rem 6rem;
+  background-color: #fff;
+}
+
+.logo{
+  font-size: 2rem;
+  font-family: 'Merriweather', serif;
+  font-weight: 200;
+  letter-spacing: 1px;
+  margin-bottom: 4rem;
+}
+
+.budget-overview{
+  margin-bottom: 2rem;
+  display: inline-block;
+  width: 50%;
+}
+
+
+.budget-overview__item{
+  display: inline-block;
+padding: 30px;
+text-align: center;
+background: white;
+margin-bottom: 2rem;
+margin-right: .5rem;
+}
+
+.budget-settings{
+display: inline-block;
+  line-height: 3rem;
+}
+.budget-settings h5, button{
+  display: inline;
+}
+
+footer {
+  flex-shrink: 0;
+  background-color: var(--white);
+}
+
+footer p{
+    padding: 1rem 2rem 1rem 1rem;
+    text-align: right;
+    font-size: .8rem;
+    margin-bottom: 0;
+}
+
+.font-merriweather{
+font-family: 'Merriweather', serif;
+}
+
+.btn{
+  background-color: white;
+  padding: 1rem;
+  border: 2px black solid;
+  font-family: 'Merriweather', serif;
+  font-size: 1rem;
+  cursor: pointer;
+
+}
+
+.btn:hover{
+  background-color: black;
+  color: white;
+}
+
+.btn-small{
+padding: .2rem;
+background-color: var(--yellow);
+margin: 0;
+border: 2px solid black;
+font-size: .8rem;
+margin-left: .5rem;
+}
+
+
+#spendings {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 3rem;
+}
+
+#spendings td, #spendings th {
+  border: 1px solid white;
+  padding: 8px;
+}
+
+#spendings tr:nth-child(even){background-color: #f2f2f2;}
+
+#spendings tr:hover {background-color: #ddd;}
+
+#spendings th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: var(--yellow);
+  color: black;
+}
+
+
+
+.modal {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-flow: column nowrap;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(255,255,255,1);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+  color: black;
+}
+
+.modal button.close {
+  position: absolute;
+  padding: 10px 20px 20px 20px;
+  top: 1rem;
+  right: 1rem;
+  border: 0;
+  background: transparent;
+  font-size: 2rem;
+  cursor: pointer;
+  color: black;
+}
+
+.visible {
+  opacity: 1;
+  pointer-events: all;
+}
+
+#day-budget, #start-day, #full-monthly-budget{
+  background-color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+
+/* Modals */
+
+
+/* Forms */
+input:placeholder-shown{
+  color: lightslategray;
+}
+
+.btn-submit-form{
+margin-top: 2rem;
+}
+
+input:invalid {
+  border: 1px solid red
+}
+input:vvalid {
+  border: 1px solid black
+}
+input:valid {
+  border: 1px solid black
+}

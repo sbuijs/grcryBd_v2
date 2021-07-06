@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 🥕 gcryBd </title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="content">
+        <div class="top">
+            <div class="logo">
+                <h1>🥕 gcryBd</h1>
+            </div>
+
+            <div class="budget-overview">
+                <div class="budget-overview__item">
+                    <h4>Budget left</h4>
+                    <h2>€<span id="actual-money-left">0</span></h2>
+                </div>
+
+                <div class="budget-overview__item">
+                    <h4>Days left</h4>
+                    <h2><span id="days-left">0</span></h2>
+                </div>
+                <div class="budget-overview__summary">
+                    <h4>Today you should have €<span id="budget-left">0</span> left</h4>
+                </div>
+            </div>
+            <div class="budget-settings">
+                <div class="div">
+                    <h5>This month you can spend €<span id="day-budget">0</span> per day</h5>
+                </div>
+                <div class="div">
+                    <h5>To spend per month €<span id="full-monthly-budget">0</span></h5>
+                    <button class="btn btn-small modal-button" data-modal="modal-change-budget">edit</button>
+                </div>
+                <div class="div">
+                    <h5>Your <strong>new</strong> budget starts on the <span id="start-day"></span>th of the month
+                    </h5>
+                    <button class="btn btn-small modal-button" data-modal="modal-change-day">edit</button>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="bottom">
+            <table id="spendings">
+                <tr>
+                    <th>Date</th>
+                    <th>Amount of money spent</th>
+                    <th>Under or over?</th>
+                </tr>
+                <tr>
+                    <td>1 july 2021</td>
+                    <td>€12,43</td>
+                    <td>🟢</td>
+                </tr>
+                <tr>
+                    <td>2 july 2021</td>
+                    <td>€15,40</td>
+                    <td>🔴</td>
+                </tr>
+                <tr>
+                    <td>3 july 2021</td>
+                    <td>€15,40</td>
+                    <td>🟠</td>
+                </tr>
+                <tr>
+                    <td>5 july 2021</td>
+                    <td>€15,40</td>
+                    <td>🟢</td>
+                </tr>
+                <tr>
+                    <td>6 july 2021</td>
+                    <td>€15,40</td>
+                    <td>🟠</td>
+                </tr>
+
+            </table>
+            <button class="btn modal-button" data-modal="modal-add-spendings">Add spendings</button>
+        </div>
+    </div>
+
+
+    <!-- Modal for adding the montly budget and the start date of the budget -->
+    <div class="modal" id="first-run-modal">
+        <button class="close">&times;</button>
+        <div class="modal-content">
+            <h2>Welcome to grcryBd!</h2>
+            <p>This small tool will help you keep track of your montly grocery budget.</p>
+            <!-- <p>For this tool to work for you, we need to know what your montly budget is:</p> -->
+
+            <div id="error"></div>
+
+            <form id="first-run-form" name="first-run-form" method="GET">
+                <label for="first-run-budget-input">For this tool to work for you, we need to know what your montly
+                    budget is:</label>
+                <p>€ <input type="number" id="first-run-budget-input" required placeholder="400" required minlength='1'>
+                    <span id='first-run-budget-input-empty' hidden>Don't forget!</span>
+                </p>
+
+                <label for="first-run-start-day-input">For this tool to work for you, we need to know what your montly
+                    budget is:</label>
+                <input type="number" id="first-run-start-day-input" required placeholder="24" required minlength='1'
+                    maxlength='2'>
+                <span id='first-run-start-day-input-empty' hidden>Don't forget!</span>
+                <button class="btn btn-submit-form" id="add-start-details" type="submit">Check out your budget</button>
+            </form>
+
+
+
+            <!-- <p>€ <input type="number" id="first-run-budget-input"></p>
+            Also, what is the day of the month you start your budget? -->
+            <!-- <p><input type="number" id="first-run-start-day"></p> -->
+
+
+        </div>
+    </div>
+
+
+    <!-- Modal for changing the montly budget -->
+    <div class="modal" id="modal-change-budget">
+        <button class="close">&times;</button>
+        <div class="modal-content">
+            <h2>What is your grocery budget for a month?</h2>
+            <p>€ <input type="number" id="monthly-budget-input"></p>
+            <button class="btn" id="edit-monthly-budget">Save budget</button>
+        </div>
+    </div>
+
+    <!-- Modal for changing the montly day -->
+    <div class="modal" id="modal-change-day">
+        <button class="close">&times;</button>
+        <div class="modal-content">
+            <h2>What is the day of the month you start your budget?</h2>
+            <p><input type="number" id="monthly-day-input"></p>
+            <button class="btn" id="edit-monthly-day">Save day</button>
+        </div>
+    </div>
+
+
+    <!-- Modal for adding the montly budget and the start date of the budget -->
+    <div class="modal" id="modal-add-spendings">
+        <button class="close">&times;</button>
+        <div class="modal-content">
+            <h2>How much did you spend today?</h2>
+            <p>€ <input type="number" id="day-spending-input"></p>
+            <button class="btn" id="save-spendings">Save spendings</button>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+<footer>
+    <p class="font-merriweather">Created by Stephanie Buijs 👋</p>
+</footer>
+
+</html>
